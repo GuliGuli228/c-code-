@@ -1,18 +1,20 @@
 #include <iostream>
 #include <string>
 #include <math.h>
+#include <locale>
 using namespace std;
 int main()
 {   
+    setlocale(LC_ALL,"Russian")
     int i, dec, k, p, ss1, ss2;
     string st, hex;
     string digits[16] = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F" };
 
-    cout << "chislo" << endl;
+    cout << "число " << endl;
     cin >> st;  
-    cout << "ss1" << endl;
+    cout << "система счисления 1" << endl;
     cin >> ss1;
-    cout << "ss2" << endl;
+    cout << "система счисленеия 2" << endl;
     cin >> ss2;
 
     for (i = 0; i < st.length(); i++)
