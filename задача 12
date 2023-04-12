@@ -1,0 +1,36 @@
+#include <iostream>
+#include <stdlib.h>
+using namespace std;
+int main(){
+    int f, sum =0;
+    for (int i=3 ; i<1000; i++){
+        string  s = "3";
+        for (int j =0; j<i; j++){
+            s +="5";
+        }
+        while ((s.find("25") != -1) or (s.find("355")!=-1) or (s.find("555")!=-1)){
+            if (s.find("25")!=-1){
+                int poz = s.find("25");
+                s.replace(poz, 2, "32");
+            }
+                    if (s.find("355")!=-1){
+                int poz = s.find("355");
+                s.replace(poz, 3, "25");
+            }
+                    if (s.find("555")!=-1){
+                int poz = s.find("555");
+                s.replace(poz, 3, "3");
+            }
+        }
+        f = atoi(s);
+        do{
+            sum == f%10;
+            s =s / 10;
+        }while (f>0);
+        if (sum==17){
+            cout << (i, sum);
+        }
+        return 0;
+    }
+    
+}
