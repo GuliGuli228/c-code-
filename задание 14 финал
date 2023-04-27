@@ -1,0 +1,39 @@
+#include <iostream>
+#include <cmath>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+	long double summ = 0, summ1 = 0, summ3 = 0, k;
+	int f = 0, m = 0, t;
+	string h;
+
+	summ = 1 * pow(43, 3) + 2 * pow(43, 2) + 12;
+	summ1 = 14 * pow(57, 3) + 9;
+	for (int x1 = 0; x1 < 43; x1++) {
+		for (int x2 = 0; x2 < 43; x2++) {
+			for (int y = 0; y < 57; y++) {
+				t = (summ + (x1 * 43)) + (summ1 + (y * pow(57, 2) +(x2 * 57)));
+				h = to_string(t);
+				k = h.size();
+				for (int i = 0; i < k; i++) {
+					summ3 += t % 10;
+					t /= 10;
+				}
+				if (summ3 < 20000) {
+					f += 1;
+					summ3 = 0;
+				}
+				summ3 = 0;
+				m += 1;
+				cout << " " << h << "  " << "x1=" << x1 << " " << "x2=" << x2 << " " << "y = " << y << endl;
+				continue;
+			}
+		}
+	}
+	cout <<"\t"<< f<< "\t"<< summ << "\t" <<summ1 <<"\t"<< m;
+	return 0;
+}
+
