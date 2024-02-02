@@ -1,0 +1,79 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Drawer {
+public:
+	string name;
+	char sym = '@';
+
+	Drawer(string name, char sym) {
+		this->name = name;
+		this->sym = sym;
+	}
+};
+
+class Sqr : public Drawer{
+public:
+	string form;
+	int size;
+	Sqr(string name, char sym, string form , int size) : Drawer(name, sym) {
+		this->form = form;
+		this->size = size;
+	}
+
+	void print_inf() {
+		for (size_t i = 0; i < size; i++) {
+			cout << "\n";
+			for (size_t j = 0; j < size * 2; j++) {
+				cout << sym;
+			}
+		}
+	}
+};
+
+class Prm : public Drawer {
+public:
+	int len;
+	int size;
+	Prm(string name, char sym, int len, int size) : Drawer(name, sym) {
+		this->len = len;
+		this->size = size;
+	}
+
+	void print_inf() {
+		for (size_t i = 0; i < len; i++) {
+			cout << "\n";
+			for (size_t j = 0; j < 2 * size; j++) {
+				cout << "@";
+			}
+		}
+	}
+};
+
+class Trg : public Drawer {
+public:
+	int h;
+	Trg(string name, char sym, int h) : Drawer(name, sym) {
+		this->h = h;
+	}
+
+	void print_inf() {
+		for (size_t i = 1; i < h; i++) {
+			for (size_t j = 0; j < h - i; j++) {
+
+			}
+		}
+	}
+};
+
+int main()
+{
+	setlocale(LC_ALL, "Rus");
+	Sqr sqr1("квадрат", '@', "квадарат", 10);
+	Prm prm1("прямоугольник", '@', 10, 20);
+
+	sqr1.print_inf();
+	return 0;
+}
