@@ -1,0 +1,64 @@
+#include <iostream>
+#include <string>
+#include <cstdlib>
+
+using namespace std;
+
+class Creature {
+public:
+	int Size;
+	int MaxAge;
+	int Speed;
+	int Hunger;
+
+	Creature(int Size, int MaxAge, int Speed, int Hunger) {
+		this->Size = Size;
+		this->MaxAge = MaxAge;
+		this->Speed = Speed;
+		this->Hunger = Hunger;
+	}
+	virtual void FeedType() = 0 ;
+	virtual void HungerLevel() = 0;
+	virtual void reproduction() = 0;
+};
+
+class Predator : public Creature {
+public:
+	int Hungerlevel = 100;
+	int reproduction = 6;
+	using Creature::Creature;
+	void FeedType() override {
+		cout << "Хищник" << endl;
+	}
+	void HungerLevel() override {
+		cout << "Уровень голода: " << Hungerlevel;
+	}
+	void reproduction() override {
+		cout << "Потомство: " << reproduction;
+	}
+};
+
+class Herbivore : public Creature {
+public:
+	int Hungerlevel = 100;
+	int reproduction = 10;
+	using Creature::Creature;
+	void FeedType() override {
+		cout << "Травоядное" << endl;
+	}
+	void HungerLevel() override {
+		cout << "Уровень голода: " << Hungerlevel;
+	}
+	void reproduction() override {
+		cout << "Потомство: " << reproduction;
+	}
+};
+
+int main()
+{
+	setlocale(LC_ALL, "Rus");
+	Predator wolf(100, 20, 50, 30);
+	Herbivore sheep(100, 40, 30, 60);
+
+	sheep.HungerLevel();
+}
